@@ -1,0 +1,205 @@
+/* -----------------------CSS----------------------- */
+
+/* 站点样式 */
+.Button .Button-label{ font-weight:600;}
+.DiscussionListItem{
+    padding: 10px;
+    margin: 10px;
+    background:#ffffff30;
+    border-radius: 10px;
+}
+.Header-title{
+    /*font-family: monospace;*/
+    font-weight: 600;
+    font-size:20px;
+}
+.DiscussionListItem:hover, .DiscussionListItem:focus {
+    background: #ffffff;
+    transition: all 300ms;
+    box-shadow:10px 10px 20px #00000020;
+}
+body{letter-spacing: 1px;}
+
+@media (max-width: 767px)
+{.App-content {background:#f5f5f5;}}
+
+a.scroll-up {
+    background-color: #0077e6;
+    width:30px;
+    line-height: 3.5;
+}
+
+.scroll-up:hover, .scroll-up:focus{background-color: #0077e6!important;}
+
+.DiscussionListItem-main mark {background: #ffff80 !important;}
+
+
+
+/* 置顶加粗 */
+.DiscussionListItem.DiscussionListItem--sticky:nth-child(n){border-bottom: 2px double #722c29;}
+
+/* 公告 */
+.Afrux-NewsWidget-icon{display:none}
+.Afrux-NewsWidget-content{justify-content:center}
+.Afrux-NewsWidget-line-container{justify-items:center}
+
+
+/* 标签搜索框 */
+.FormControl{width:90%;}
+
+
+/* 标签gif */
+.Hero-title::after {
+content: '';
+background-size: cover;
+background-image: url(https://www.jiziyuan.top/assets/20221019.gif);
+width: 50px;
+height: 50px;
+position: absolute;
+margin-top: -10px;
+}
+
+
+/* 页脚 */
+.site-footer {
+	margin:0;
+	/*margin-top:64px;*/
+	padding-top:30px;
+	padding-bottom:30px;
+	color:hsla(0,0%,100%,.9);
+	box-sizing:inherit;
+	text-align:center;
+	font-size:1em
+}
+@media (max-width:991px){
+    .site-footer {
+	padding-top:0px;
+    }
+}
+.site-footer p {
+	margin:0
+}
+.rm-link-color > p > a {
+	text-decoration:none;
+	color:#89898c
+}
+.rm-link-color > p > a:hover {
+	text-decoration:underline
+}
+
+.fly-fish{
+    z-index: -1;
+    line-height: 0px;
+    height: 350px;
+}
+footer{
+    position: relative;
+}
+.site-footer{
+    position: absolute;
+    width: 100%;
+    top: calc(100% / 4 * 3);
+    transform: translateY(calc(-50% + 10%));
+    padding: 0;
+}
+
+.App{
+    padding-bottom: 0;
+}
+@media (max-width: 767px){
+    .App{
+        padding-bottom: 0;
+    }
+    .App-content {
+        padding-bottom: 0;
+    }
+}
+
+/* -----------------------script----------------------- */
+
+<!-- 外链跳转 -->
+<script>
+    document.addEventListener('click', event => {
+        let t = event.target;
+        if (t.matches('.Post-body a')) {
+            let url = new URL(t.href);
+            if (url.origin == document.location.origin) {
+                t.removeAttribute('target');
+                t.removeAttribute('rel');
+            }else{
+                t.setAttribute('target', '_blank');
+            }
+        }
+    }, false);
+</script>
+
+
+<!-- 页脚 -->
+<footer>
+    <div class="site-footer">
+        <div style="color: rgb(137, 137, 140);font-size:0.9em;" class="footer-container rm-link-color">
+            <p>
+                <!-- 加载时间 -->
+                <script>
+                    var start_time = new Date();
+                    var end_time = "";
+                    var loadt = setInterval(function () {
+                        if (document.readyState == "complete") {
+                            showLoadTime();
+                        }
+                    }, 500)
+
+                    function showLoadTime() {
+                        end_time = new Date();
+                        loadtime_span.innerHTML = "T " + (end_time.getTime() - start_time.getTime()) + " ms";
+                        clearInterval(loadt);
+                    }
+                </script>
+
+
+                <span class="mx-2">|</span>
+
+                <span id="loadtime_span">T</span>
+
+                <span class="mx-2">|</span>
+
+                <a id="stats" href="https://www.cokecoke.top" target="_blank"></a>
+
+            </p>
+            <p>
+                <a id="prot_span" href="https://www.jiziyuan.top/p/1-1"></a>
+
+                <span class="mx-2">|</span>
+
+                <a id="rept_span" href="mailto:359100378@qq.com"></a>
+
+                <span class="mx-2">|</span>
+
+                <span id="ver_span"></span>
+				<p id="right_span"></p>
+            </p>
+            <!-- 声明 -->
+            <script type="text/javascript">
+                var site_version = "1.5.0";
+                var lang = document.getElementsByTagName("html");
+                var userLang = lang[0].getAttribute("lang");
+                if (userLang.includes("zh")) {
+                    stats.innerHTML = "©2022 Coke笔记";
+                    prot_span.innerHTML = "社区规范";
+                    rept_span.innerHTML = "违法和不良信息举报";
+                    ver_span.innerHTML = "版本 " + site_version;
+                    
+                }
+                else {
+                    stats.innerHTML = "©2022 Coke笔记";
+                    prot_span.innerHTML = "Protocol";
+                    rept_span.innerHTML = "Report";
+                    ver_span.innerHTML = "Version " + site_version;
+                }
+            </script>
+        </div>
+    </div>
+    <div id="flyfish" class="fly-fish" height="200"></div>
+</footer>
+
+<script src="/fish.js"></script>
